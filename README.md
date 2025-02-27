@@ -21,8 +21,11 @@ Follow these steps to install and run the project locally:
    ```bash
    cd project-name
    ```
-   
-3. Run the Java application: in IntelliJ within the run configuration, please add the inputs you want to test and then click Run:
+3. Build the Java application:
+     ```bash
+    mvn clean install
+    ```  
+4. Run the Java application: in IntelliJ within the run configuration, please add the inputs you want to test and then click Run:
     
     ![run config](src/main/resources/config.png)
     
