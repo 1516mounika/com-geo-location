@@ -112,7 +112,7 @@ public class GeoLocationUtilityTest {
     @Test
     public void testGetLocationDataBasedOnLocation_WithURLManipulation() throws Exception {
         // Test with URL manipulation such as appending extra query parameters
-        String location = "Los Angeles?foo=bar";
+        String location = "Los Angeles?q=london";
         List<GeoResponse> geoResponse = GeoLocationUtility.getLocationDataBasedOnLocation(location);
         assertTrue(geoResponse.isEmpty());
     }
@@ -142,7 +142,4 @@ public class GeoLocationUtilityTest {
             GeoLocationUtility.getLocationDataBasedOnZip(zip);
         });
     }
-
-
-
 }
