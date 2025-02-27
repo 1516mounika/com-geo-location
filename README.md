@@ -14,7 +14,7 @@ Follow these steps to install and run the project locally:
 
 1. Clone the repository:
    ```bash
-   git clone repo_name
+   git clone https://github.com/1516mounika/com-geo-location.git
    ```
 
 2. Navigate into the project directory:
