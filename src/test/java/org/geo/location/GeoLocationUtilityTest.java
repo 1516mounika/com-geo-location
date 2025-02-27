@@ -39,9 +39,9 @@ public class GeoLocationUtilityTest {
         // Check if response is not empty
         assertNotNull(geoResponse);
         assertFalse(geoResponse.isEmpty());
-        // Verify that the data contains the correct city
+        // Check response contains the correct city
         assertEquals("Madison", geoResponse.get(0).getName());
-        // Validate latitude and longitude are not null
+        // Check latitude and longitude are not null
         assertNotNull(geoResponse.get(0).getLat());
         assertNotNull(geoResponse.get(0).getLon());
     }
@@ -53,9 +53,9 @@ public class GeoLocationUtilityTest {
         GeoResponse geoResponse = GeoLocationUtility.getLocationDataBasedOnZip(zip);
         // Check if response is not null
         assertNotNull(geoResponse);
-        // Verify that city name is correct
+        // Check that city name is correct
         assertEquals("Mountain View", geoResponse.getName());
-        // Validate latitude and longitude are valid
+        // Check latitude and longitude are valid
         assertNotNull(geoResponse.getLat());
         assertNotNull(geoResponse.getLon());
     }
@@ -65,23 +65,23 @@ public class GeoLocationUtilityTest {
         // Test for invalid location
         String invalidLocation = "InvalidLocationXYZ123";
         List<GeoResponse> geoResponse = GeoLocationUtility.getLocationDataBasedOnLocation(invalidLocation);
-        // Ensure the response is empty
+        // Check the response is empty
         assertTrue(geoResponse.isEmpty());
     }
 
     @Test
     public void testGetLocationDataBasedOnZip_InvalidZip() throws Exception {
         // Test for invalid zip code
-        String invalidZip = "00000"; // an invalid zip code that doesn't exist
+        String invalidZip = "00000";
         GeoResponse geoResponse = GeoLocationUtility.getLocationDataBasedOnZip(invalidZip);
-        // Ensure name is null
+        // Check name is null
         assertNull(geoResponse.getName());
     }
 
     @Test
     public void testGetLocationDataBasedOnZip_InvalidSpecialCharacterZip() throws Exception {
         // Test for invalid zip code which throws URISyntaxException with invalid URL
-        String invalidZip = "7%0@1#"; // an invalid zip code that doesn't exist
+        String invalidZip = "7%0@1#";
         assertThrows(URISyntaxException.class, () -> {
             GeoLocationUtility.getLocationDataBasedOnZip(invalidZip);
 
@@ -94,9 +94,9 @@ public class GeoLocationUtilityTest {
         String validCombinedTwoZip = "75454&75006";
         GeoResponse geoResponse = GeoLocationUtility.getLocationDataBasedOnZip(validCombinedTwoZip);
         assertNotNull(geoResponse);
-        // Verify data contains the correct city
+        // Check response contains the correct city
         assertEquals("Melissa", geoResponse.getName());
-        // Validate latitude and longitude are not null
+        // Check latitude and longitude are not null
         assertNotNull(geoResponse.getLat());
         assertNotNull(geoResponse.getLon());
     }

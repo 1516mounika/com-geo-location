@@ -67,7 +67,6 @@ public class GeoLocationUtility {
         HttpClient httpClient = HttpClient.newHttpClient();
         HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
         ObjectMapper objectMapper = new ObjectMapper();
-        //objectMapper.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
         try {
             geoResponse = objectMapper.readValue(response.body(), objectMapper.getTypeFactory().constructCollectionType(List.class, GeoResponse.class));
 
